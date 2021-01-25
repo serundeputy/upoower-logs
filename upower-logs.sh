@@ -10,14 +10,14 @@
 ###
 
 # Get start time
-STIME=`date "+%d-%b-%Y-%H:%M"`
+STIME=`date "+%d-%b-%Y-%H-%M"`
 
-printf "\tWriting logs to ${HOME}/battery-${STIME}.log\n\n"
+printf "\n\tWriting logs to ${HOME}/battery-${STIME}.log\n\n"
 while true; do
   DATE=`date`
   UPOWER=`upower -d | grep percentage | head -n 1`
-  printf '%s' "${DATE} ${UPOWER}"
-  printf '%s' "${DATE} ${UPOWER}" >> "${HOME}/battery${STIME}.log"
+  printf '%s\n' "${DATE} ${UPOWER}"
+  printf '%s\n' "${DATE} ${UPOWER}" >> "${HOME}/battery-${STIME}.log"
   sleep 300
   sync;
 done
